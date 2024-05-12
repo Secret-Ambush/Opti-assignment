@@ -81,6 +81,35 @@ def transportation_solver(cost_matrix, supply, demand, INF=10**3):
 # Streamlit app interface
 st.title("Transportation Problem Solver")   
 
+footer="""<style>
+a:link , a:visited{
+color: blue;
+background-color: transparent;
+text-decoration: underline;
+}
+
+a:hover,  a:active {
+color: red;
+background-color: transparent;
+text-decoration: underline;
+}
+
+.footer {
+position: fixed;
+left: 0;
+bottom: 0;
+width: 100%;
+background-color: transparent;
+color: white;
+text-align: center;
+}
+</style>
+<div class="footer">
+<p></p>
+<p>Developed by Riddhi Goswami ✨</p>
+</div>
+"""
+
 co1, co2 = st.columns([3,1])
 co1.markdown("""
 Hey there! ✨ This app optimizes the distribution of products from multiple suppliers to various consumers at the lowest possible cost. Here’s how you can use this tool:
@@ -132,5 +161,5 @@ if st.session_state['submit']:
         st.write("Final Allocations:")
         st.dataframe(allocations)
 
-    
+st.markdown(footer,unsafe_allow_html=True)
 
